@@ -38,19 +38,19 @@ void printfPolynomial(Polynomial p) {
 	printf("%3.1f \n", p.coef[p.degree]);
 }
 
-Polynomial multPolynomial(Polynomial A, Polynomial B) {
+Polynomial multPolynomial(Polynomial A, Polynomial B){
 	Polynomial C;
 	int cPos = 0;
 	C.degree = A.degree + B.degree;
 
 	for (int i = 0; i <= C.degree; i++) {
 		C.coef[i] = 0.0;
-	}
+	} //C.coef에 0.0 넣기
 
 	for (int i = 0; i <= A.degree; i++) {
 		for (int j = 0; j <= B.degree; j++) {
 			C.coef[i + j] += A.coef[i] * B.coef[j];
-		}
+		}//모든 항을 곱하고, 같은 차수는 더해질 수 있도록 +=를 씀.
 	}
 
 	return C;
