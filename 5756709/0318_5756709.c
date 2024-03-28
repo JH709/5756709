@@ -6,8 +6,10 @@ typedef struct polynomial {
 	float coef[MAX_DEGREE];
 }Polynomial;
 
-Polynomial a = { 3, {4.0, 3.0, 2.0, 1.0} };
-Polynomial b = { 2, {3.0, 2.0, 8.0} };
+//Polynomial a = { 3, {4.0, 3.0, 2.0, 1.0} };
+Polynomial a = { 6, {7.0, 0.0, 0.0, 5.0, 9.0, 0.0, 1.0} };
+//Polynomial b = { 2, {3.0, 2.0, 8.0} };
+Polynomial b = { 3, {5.0, 2.0, 1.0, 10.0} };
 
 void printfPolynomial(Polynomial p);
 //Polynomial addPolynomial(Polynomial A, Polynomial B);
@@ -40,18 +42,23 @@ Polynomial multPolynomial(Polynomial A, Polynomial B) {
 	Polynomial C;
 	int cPos = 0;
 	C.degree = A.degree + B.degree;
-	for (int i = A.degree; i >= 0; i--) {
-		for (int j = B.degree; j >= 0; j--){
-			if()
+
+	for (int i = 0; i <= C.degree; i++) {
+		C.coef[i] = 0.0;
+	}
+
+	for (int i = 0; i <= A.degree; i++) {
+		for (int j = 0; j <= B.degree; j++) {
+			C.coef[i + j] += A.coef[i] * B.coef[j];
 		}
 	}
+
 	return C;
 }
 
 
-
-
-/*Polynomial addPolynomial(Polynomial A, Polynomial B) {
+/* ´ÙÇ×½Ä µ¡¼À
+Polynomial addPolynomial(Polynomial A, Polynomial B) {
 	Polynomial C;
 	int Apos = 0, Bpos = 0, Cpos = 0;
 	int degree_a = A.degree;
